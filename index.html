@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<title>Tworzenie zestawów</title>
+ 
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+		<link rel="stylesheet" type="text/css" href="./css/jquery-ui.css">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $( function() {
+                $( "#accordion" ).accordion();
+            } );
+        </script>
+    </head>
+    
+    <body>
+        <h1 class="elo">Stwórz zestawy</h1>
+        <div class="container">
+            <!--lewy container-->
+			<div class="row">
+                <div class="col-sm">
+                    <h2>Siedziska</h2><br>
+                    <h4>Parametry fizyczne</h4><br>
+                    <label for="nazwa_siedziska">Nazwa siedziska: </label>
+                    <input type="text" id="nazwa_siedziska" placeholder="Nazwa siedziska..."/> <br>
+                    <label for="glebokosc_mebla">Głębokość mebla: </label>
+                    <input type="text" id="glebokosc_mebla" placeholder="Głębokość mebla..."/> <br>
+                    <label for="szerokosc_mebla">Szerokość mebla: </label>
+                    <input type="text" id="szerokosc_mebla" placeholder="Szerokość mebla..."/> <br>
+                    <label for="wysokosc_mebla">Wysokość mebla: </label>
+                    <input type="text" id="wysokosc_mebla" placeholder="Wysokość mebla..."/> <br>
+
+                    <h4>Siedzisko</h4><br>
+                    <label for="glebokosc_siedziska">Głębokość siedziska: </label>
+                    <input type="text" id="glebokosc_siedziska" placeholder="Głębokość siedziska..."/> <br>
+                    <label for="szerokosc_siedziska">Szerokość siedziska: </label>
+                    <input type="text" id="szerokosc_siedziska" placeholder="Szerokość siedziska..."/> <br>
+                    <label for="wysokosc_siedziska">Wysokość siedziska: </label>
+                    <input type="text" id="wysokosc_siedziska" placeholder="Wysokość siedziska..."/> <br>
+
+                    <h4>Obicie</h4><br>
+                    <label for="kolor_obicia">Kolor obicia: </label>
+                    <input type="text" id="kolor_obicia" placeholder="Kolor obicia..."/> <br>
+                    <label for="material_obicia">Materiał obicia: </label>
+                    <input type="text" id="material_obicia" placeholder="Materiał obicia..."/> <br>
+                    <input type="button" value="dodaj nowy produkt" onclick="addList2()"/><br>
+                </div>  
+                <div class="col-sm">
+                    <h2>Nogi</h2><br>
+                <h4>Korpus</h4><br>
+                <label for="nazwa_nog">Nazwa nóg: </label>
+                <input type="text" id="nazwa_nog" placeholder="Nazwa nóg..."/> <br>
+                <label for="rodzaj_nog">Rodzaj nóg:</label>
+                <select name="rodzaj_nog" id="rodzaj_nog">
+                    <option value="Gięte">Gięte</option>
+                    <option value="Krzyżak">Krzyżak</option>
+                    <option value="Płozy">Płozy</option>
+                    <option value="Profilowane">Profilowane</option>
+                    <option value="Proste">Proste</option>
+                    <option value="Toczne">Toczne</option>
+                    <option value="Inne">Inne</option>
+                </select><br>
+                <label for="kolor_korpusu">Kolor korpusu: </label>
+                <input type="text" id="kolor_korpusu" placeholder="Kolor korpusu..."/> <br>       
+                <label for="material_korpusu">Materiał korpusu: </label>
+                <input type="text" id="material_korpusu" placeholder="Materiał korpusu..."/> <br>   
+                <input type="button" value="dodaj nowy produkt" onclick="addList()"/><br>
+                </div>
+            </div>
+
+            <div>
+                <form id="test-form" method="POST" action="/test">
+                    <label for="email">your email:</label>
+                    <input type="email" name="email"/>
+                    <input type="submit" value="submit"/>
+                </form>
+            </div>
+
+            <div>
+                <div id="accordion"></div>
+            </div>
+
+        </div>
+
+        <script>
+            sessionStorage.nogi_id = 0;
+            sessionStorage.siedziska_id = 0;
+            function addList(){
+                sessionStorage.nogi_id++;
+				let tytul = document.createElement("h4");
+                tytul.innerHTML = document.getElementById("nazwa_nog").value;
+                document.getElementById("accordion").appendChild(tytul);
+                let tekst = document.createElement("p");
+                tekst.innerHTML = "Rodzaj nóg: " + document.getElementById("rodzaj_nog").value + "<br>"
+                + "Kolor korpusu: " + document.getElementById("kolor_korpusu").value + "<br>"
+                + "Materiał korpusu: " + document.getElementById("material_korpusu").value;
+				document.getElementById("accordion").appendChild(tekst);
+				$( "#accordion" ).accordion( "refresh" );
+            }
+            function addList2(){
+                console.log("elo");
+                sessionStorage.siedziska_id++;
+				let tytul = document.createElement("h4");
+                tytul.innerHTML = document.getElementById("nazwa_siedziska").value;
+                document.getElementById("accordion").appendChild(tytul);
+                let tekst = document.createElement("p");
+                tekst.innerHTML = "Głębokość mebla: " + document.getElementById("glebokosc_mebla").value + "<br>"
+                + "Szerokość mebla: " + document.getElementById("szerokosc_mebla").value + "<br>"
+                + "Wysokość mebla: " + document.getElementById("wysokosc_mebla").value + "<br>"
+                
+                + "Głębokość siedziska: " + document.getElementById("glebokosc_siedziska").value + "<br>"
+                + "Szerokość siedziska: " + document.getElementById("szerokosc_siedziska").value + "<br>"
+                + "Wysokość siedziska: " + document.getElementById("wysokosc_siedziska").value + "<br>"
+
+                + "Kolor obicia: " + document.getElementById("kolor_obicia").value + "<br>"
+                + "Materiał obicia: " + document.getElementById("material_obicia").value;
+				document.getElementById("accordion").appendChild(tekst);
+				$( "#accordion" ).accordion( "refresh" );
+			}
+        </script>
+    </body>
+
+    <footer>
+        <input type="button" value="zapisz" onclick="save()"/>
+		<p>Szchara.pl © 2021 All rights Reserved.</p>
+	</footer>
+</html>

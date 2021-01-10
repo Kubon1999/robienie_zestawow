@@ -1,0 +1,22 @@
+.container-showcase{
+	flex-direction: column;
+	align-items: center;
+}
+
+.container-showcase div{
+	display: flex;
+	text-align: center;
+	width: 50%;
+	border-left: solid 10px #3498DB;
+	padding-left: 30px;
+	background-color:#ECF0F1;
+}
+
+table, td, th {
+    border: 1px solid black;
+	align-items: center;
+}
+
+table{
+	border-collapse: collapse;
+}

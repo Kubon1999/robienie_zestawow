@@ -1,0 +1,279 @@
+*{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+@font-face{
+    font-family: font;
+    src: url(font.ttf);
+}
+
+
+body{
+	margin: 30px;
+}
+
+header{
+	margin-bottom: 30px;
+}
+
+html{
+	font-family: font;
+	font-size: 150%;
+	line-height: 2.0em;
+	font-weight: bold;
+}
+
+p{
+	color: gray;
+}
+
+p::first-letter {
+    font-size: 200%;
+    color: #34495E;
+}
+
+#container-nav{
+   display: flex;
+   align-items: baseline;
+   justify-content: space-evenly;
+}
+
+#container-nav li{
+	list-style: none;
+	position: relative;
+}
+
+.dropdown{
+	display: inline-block;
+}
+
+.dropdown:hover .dropdown-content{
+	display: block;
+	z-index: 1;
+	position: absolute;
+	width: 100%;
+	background-color: #c6c6c6;
+}
+
+.dropdown-content a{
+	display: block;
+	color: white;
+}
+
+.dropdown-content{
+	display: none;
+}
+
+.item-nav .dropdown-content{
+	z-index: 1;
+	position: absolute;
+}
+
+.item-logo{
+	flex-grow: 1;
+	margin: 5px;
+}
+
+.item-logo img{
+	text-decoration: none;
+	vertical-align: middle;
+	width: 100px;
+}
+
+.item-title{
+	flex-grow: 1;
+	margin: 5px;
+}
+
+.item-title h1{
+	text-decoration: none;
+}
+
+.item-nav{
+	flex-grow: 1;
+	line-height: 100px;
+	text-align: center;
+	margin: 5px;
+}
+
+.item-nav a{
+	display:block;
+	text-decoration: none;
+	color: black;
+}
+
+.item-nav:hover{
+	background-color: gray;
+}
+
+.item-nav a:hover{
+	color: white;
+}
+
+.active a{
+	color: black;
+	text-decoration: underline;
+}
+
+.container-showcase{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: baseline;
+}
+
+.container-showcase div{
+	margin: 40px;
+	flex-grow: 1;
+	flex-direction: column;
+	align-content: flex-start;
+}
+
+.container-showcase div img{
+	border-left: 3px solid #E74C3C;
+	padding-left: 15px;
+	margin-bottom: 30px;
+}
+
+.container-showcase div a{
+	border-left: 5px solid #2980B9;
+	border-bottom: 5px solid #2980B9;
+	background-color: #3498DB;
+	text-decoration: none;
+	color: white;
+	padding: 15px;
+}
+
+@keyframes changeColor {
+    from {
+		border-left: 5px solid #2980B9;
+		border-bottom: 5px solid #2980B9;
+		background-color: #2980B9;
+	}
+    to {
+		border-left: 5px solid #27AE60;
+		border-bottom: 5px solid #27AE60;
+		background-color: #2ECC71;
+	}
+}
+
+.container-showcase div a:hover, input[type="button"]:hover, input[type="reset"]:hover{
+    animation-name: changeColor;
+    animation-duration: 1s;
+	animation-fill-mode: both;
+}
+
+.container-showcase div input[type="button"], input[type="reset"]{
+	border: none;
+	background-color: #2980B9;
+	color: white;
+	text-align: center;
+	padding: 10px;
+	margin-left: 10px;
+	font-family: font;
+	font-weight: bold;
+	font-size: 100%;
+}
+
+.title-h1{
+	margin: 50px;
+	margin-top: 100px;
+	padding: 10px;
+	padding-left: 30px;
+	color: white;
+	border-left: 10px solid #2C3E50;
+	border-bottom: 10px solid #2C3E50;
+	background-color: #34495E;
+}
+
+footer{
+	margin-top: 50px;
+}
+
+input[type=text], textarea, input {
+    height: 50px;
+	font-size: 100%;
+	font-family: font;
+	margin: 10px;
+}
+
+#nameSession{
+	color: #3498DB;
+	font-size: 300%;
+	margin: 50px;
+}
+
+#accordion h2[aria-expanded="true"]{
+	border-left-color: #E67E22;
+	border-bottom: none;
+}
+
+#accordion h2{
+	padding: 5px;
+	border-left: 5px solid gray;
+	margin-top: 5px;
+}
+
+#accordion p{
+	border-left: 5px solid #E67E22;
+	border-top: none;
+	margin-bottom: 5px;
+	padding-left: 30px;
+}
+
+@keyframes growAnimation {
+    from {
+	}
+    to {
+		width: 240px;
+		height: 90px;
+	}
+}
+
+@keyframes shrinkAnimation {
+    from {
+		width: 240px;
+		height: 90px;
+	}
+    to {
+
+	}
+}
+
+
+.appleStoreImage{
+	width: 200px;
+	height: 50px;
+}
+
+.appleStoreImage:hover{
+    animation-name: growAnimation;
+    animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+.appleStoreImage:not(:hover){
+    animation-name: shrinkAnimation;
+    animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@media only screen and (max-width: 750px){
+#container-nav{
+	align-items: center;
+	flex-direction: column;
+}
+
+.item-nav{
+	width: 100%;
+	border-left: 10px solid gray;
+}
+
+.dropdown:hover .dropdown-content{
+	position: static;
+}
+
+}

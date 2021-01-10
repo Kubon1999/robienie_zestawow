@@ -1,0 +1,37 @@
+.container-gallery{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: flex-start;
+}
+
+.gallery-side{
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;	
+}
+
+.gallery-side a img{
+	width: 134px;
+	height: 100px;
+	margin: 1px;
+	margin-left: 50px;
+	margin-right: 50px;
+	border-left: solid 5px #F1C40F;
+	padding-left: 10px;
+}
+
+.gallery-side a:focus img{
+	border-left: solid 5px #F39C12;
+	margin-right: 0px;
+}
+
+.gallery-preview{
+	flex-grow: 2;
+}

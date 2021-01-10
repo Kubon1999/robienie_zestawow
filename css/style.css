@@ -1,0 +1,14 @@
+.h1{
+    text-align: center;
+}
+
+#elo{
+    text-align: center;
+}
+
+#accordion h4[aria-expanded="true"]{
+	border-left-color: #E67E22;
+	border-bottom: none;
+}
+
+.div { background-color: #808080 !important; }
